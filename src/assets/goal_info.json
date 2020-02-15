@@ -1,0 +1,13 @@
+{
+  "name": "dummy",
+  "value": 0,
+  "enabled": false,
+  "subgoals": [
+    {
+      "title": "dummy2",
+      "value": 0,
+      "enabled": true,
+      "subgoals": []
+    }
+  ]
+}

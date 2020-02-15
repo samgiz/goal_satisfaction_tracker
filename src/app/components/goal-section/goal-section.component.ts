@@ -8,10 +8,19 @@ import { GoalService } from '../../services/goal.service'
   styleUrls: ['./goal-section.component.css']
 })
 export class GoalSectionComponent implements OnInit {
-  goals: Goal[]
-  constructor(private goalService: GoalService){ }
+  dummy_goal: Goal
+  constructor(private goalService: GoalService){ 
+    this.dummy_goal = {
+      title: "dummy",
+      value: 0,
+      subgoals: [],
+      enabled: true
+    }
+  }
   ngOnInit(){
-    this.goals = this.goalService.getGoals()
+    this.goalService.getGoals().subscribe(goals => {
+      if(goals)this.dummy_goal = goals
+    })
   }
 
 }
