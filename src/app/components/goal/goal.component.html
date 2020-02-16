@@ -1,21 +1,28 @@
-<!-- Text field that holds the goal title -->
-<mat-form-field>
-  <mat-label>Title</mat-label>
-  <textarea matInput
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="10"
-            [(ngModel)]="goal.title"></textarea>
-</mat-form-field>
-<h1>{{goal.value}}%</h1>
-<mat-slider 
-  min="0" 
-  max="100" 
-  step="5" 
-  [(ngModel)]="goal.value"
-  disabled={{!goal.enabled}}
-></mat-slider>
-<button (click)="requestDelete()">Delete</button>
-<button (click)="addSubgoal()">Add subgoal</button>
-<app-goal-deleter [goal]="goal">
-</app-goal-deleter>
+<div>
+  <!-- Text field that holds the goal title -->
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <textarea matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="10"
+              [(ngModel)]="goal.title"></textarea>
+  </mat-form-field>
+  <h1>{{goal.value}}%</h1>
+  <mat-slider 
+    min="0" 
+    max="100" 
+    step="5" 
+    [(ngModel)]="goal.value"
+    disabled={{!goal.enabled}}
+  ></mat-slider>
+  <button (click)="requestDelete()">Delete</button>
+  <button (click)="addSubgoal()">Add subgoal</button>
+  <div>
+    <div>Have sth here</div>
+    <div class="subgoals">
+      <app-goal-deleter [goal]="goal">
+      </app-goal-deleter>
+    </div>
+  </div>
+</div>
