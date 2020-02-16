@@ -1,6 +1,8 @@
 <div class="goalSection">
-  <h1>Overall satisfaction: {{dummy_goal.value.toFixed(1)}}</h1>
-  <button (click)="addGoal()">New section</button>
+  <div class="row">
+    <div class="main_label">Overall satisfaction: {{dummy_goal.value.toFixed(1)}}</div>
+    <button (click)="addGoal()">New section</button>
+  </div>
   <app-goal 
     *ngFor="let goal of dummy_goal.subgoals" 
     [goal]="goal"
@@ -8,4 +10,4 @@
     (updateValue)="updateOverallSatisfaction()"
   >
   </app-goal>
-</div>
+</div>>
