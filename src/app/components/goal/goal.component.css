@@ -2,6 +2,12 @@ mat-form-field {
   margin-right: 12px;
   font-size: 20px;
 }
-.subgoals {
-  margin-left: 50px;
+.everything {
+  display: flex;
+  flex-direction: horizontal;
+}
+.padding {
+  background-color: rgb(130, 130, 185);
+  width: 2px;
+  margin: 10px;
 }
