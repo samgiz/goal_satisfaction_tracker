@@ -1,9 +1,21 @@
-<h1>{{goal.title}}: {{goal.value}}%</h1>
+<!-- Text field that holds the goal title -->
+<mat-form-field>
+  <mat-label>Title</mat-label>
+  <textarea matInput
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"
+            [(ngModel)]="goal.title"></textarea>
+</mat-form-field>
+<h1>{{goal.value}}%</h1>
 <mat-slider 
   min="0" 
   max="100" 
   step="5" 
-  value={{goal.value}} 
-  disabled={{!goal.enabled}} (input)="onInputChange($event)"
+  [(ngModel)]="goal.value"
+  disabled={{!goal.enabled}}
 ></mat-slider>
 <button (click)="deleteGoal()">Delete</button>
+<button (click)="addSubgoal()">Add subgoal</button>
+<app-goal *ngFor="let g of goal.subgoals" [goal]="g">
+</app-goal>

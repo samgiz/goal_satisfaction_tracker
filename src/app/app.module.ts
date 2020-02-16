@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { GoalSectionComponent } from './components/goal-section/goal-section.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,10 @@ import { MatSliderModule } from '@angular/material/slider';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    HttpClientModule
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
