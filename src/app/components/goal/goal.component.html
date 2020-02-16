@@ -11,7 +11,7 @@
                   cdkAutosizeMaxRows="10"
                   [(ngModel)]="goal.title"></textarea>
       </mat-form-field>
-      <div>{{goal.value}}%</div>
+      <div>{{goal.value.toFixed(1)}}%</div>
     </div>
     <mat-slider 
       min="0" 

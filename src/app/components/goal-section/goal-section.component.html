@@ -1,7 +1,9 @@
+<h1>Overall satisfaction: {{dummy_goal.value.toFixed(1)}}
 <button (click)="addGoal()">New section</button>
 <app-goal 
   *ngFor="let goal of dummy_goal.subgoals" 
   [goal]="goal"
   (deleteMe)="deleteSubGoal($event)"
+  (updateValue)="updateOverallSatisfaction()"
 >
 </app-goal>

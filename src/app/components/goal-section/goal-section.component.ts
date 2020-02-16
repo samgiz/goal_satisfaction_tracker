@@ -38,5 +38,9 @@ export class GoalSectionComponent implements OnInit {
     console.log("adding topmost goal")
     this.dummy_goal.subgoals.push(this.emptyGoal())
   }
+  updateOverallSatisfaction(){
+    console.log("Updating overall satisfaction")
+    this.dummy_goal.value = this.dummy_goal.subgoals.reduce((a, b) => a+b.value, 0) / this.dummy_goal.subgoals.length
+  }
 
 }
