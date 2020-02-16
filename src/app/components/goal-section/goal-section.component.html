@@ -1,6 +1,6 @@
 <app-goal 
   *ngFor="let goal of dummy_goal.subgoals" 
   [goal]="goal"
-  (deleteGoal)="deleteGoal($event)"
+  (deleteMe)="deleteSubGoal($event)"
 >
 </app-goal>
