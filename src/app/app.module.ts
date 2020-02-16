@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.component'
 @NgModule({
   declarations: [
     AppComponent,
     GoalComponent,
-    GoalSectionComponent
+    GoalSectionComponent,
+    GoalDeleterComponent
   ],
   imports: [
     BrowserModule,

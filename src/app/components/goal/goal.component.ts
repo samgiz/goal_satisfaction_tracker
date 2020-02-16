@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { Goal } from '../../models/Goal'
 
@@ -10,6 +10,7 @@ import { Goal } from '../../models/Goal'
 
 export class GoalComponent implements OnInit {
   @Input() goal: Goal
+  @Output() deleteMe: EventEmitter<Goal> = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
@@ -29,13 +30,11 @@ export class GoalComponent implements OnInit {
     this.goal.value = event.value;
     // TODO: send the updated value to the server? Possibly want to do that every n seconds instead to reduce number of requests (or after n seconds of inactivity)
   }
-  deleteGoal() {
-
+  requestDelete() {
+    console.log("Requesting delete")
+    this.deleteMe.emit(this.goal)
   }
   addSubgoal() {
     this.goal.subgoals.push(this.emptyGoal())
-  }
-  changeName() {
-
   }
 }

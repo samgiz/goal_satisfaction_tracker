@@ -15,7 +15,7 @@
   [(ngModel)]="goal.value"
   disabled={{!goal.enabled}}
 ></mat-slider>
-<button (click)="deleteGoal()">Delete</button>
+<button (click)="requestDelete()">Delete</button>
 <button (click)="addSubgoal()">Add subgoal</button>
-<app-goal *ngFor="let g of goal.subgoals" [goal]="g">
-</app-goal>
+<app-goal-deleter [goal]="goal">
+</app-goal-deleter>

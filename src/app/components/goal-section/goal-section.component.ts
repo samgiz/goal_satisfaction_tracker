@@ -23,4 +23,8 @@ export class GoalSectionComponent implements OnInit {
     })
   }
 
+  deleteGoal(){
+    
+  }
+
 }
