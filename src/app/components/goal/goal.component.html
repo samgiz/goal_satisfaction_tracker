@@ -18,11 +18,9 @@
   ></mat-slider>
   <button (click)="requestDelete()">Delete</button>
   <button (click)="addSubgoal()">Add subgoal</button>
-  <div>
-    <div>Have sth here</div>
-    <div class="subgoals">
-      <app-goal-deleter [goal]="goal">
-      </app-goal-deleter>
-    </div>
+  <!-- TODO: add a vertical line for each indentation level -->
+  <div class="subgoals">
+    <app-goal-deleter [goal]="goal">
+    </app-goal-deleter>
   </div>
 </div>

@@ -14,6 +14,15 @@ export class GoalSectionComponent implements OnInit {
     subgoals: [],
     enabled: true
   }
+
+  emptyGoal(){
+    return {
+      title: "",
+      value: 0,
+      subgoals: [],
+      enabled: true
+    }
+  }
   constructor(private goalService: GoalService){ }
   ngOnInit(){
     this.goalService.getGoals().subscribe(goals => {
@@ -22,8 +31,12 @@ export class GoalSectionComponent implements OnInit {
   }
 
   deleteSubGoal(goal){
-    console.log("deleting subgoal")
+    console.log("deleting topmost goal")
     this.dummy_goal.subgoals = this.dummy_goal.subgoals.filter(x => x!=goal)
+  }
+  addGoal(){
+    console.log("adding topmost goal")
+    this.dummy_goal.subgoals.push(this.emptyGoal())
   }
 
 }
