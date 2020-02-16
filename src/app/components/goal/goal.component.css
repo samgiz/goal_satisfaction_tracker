@@ -1,13 +1,38 @@
 mat-form-field {
   margin-right: 12px;
   font-size: 20px;
+  flex: auto;
 }
 .everything {
   display: flex;
-  flex-direction: horizontal;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: auto;
+}
+mat-slider{
+  flex:auto;
+}
+.sliderArea{
+  display: flex;
+  flex-direction: row;
+}
+.not_padding{
+  flex:auto;
 }
 .padding {
   background-color: rgb(130, 130, 185);
   width: 2px;
   margin: 10px;
+}
+.titleArea {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  align-items: center;
+}
+.title{
+  font-size: 30px;
+}
+textarea{
+  display: flex;
 }

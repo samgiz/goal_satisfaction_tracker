@@ -1,6 +1,6 @@
 <div class="everything">
   <div class="padding"></div>
-  <div>
+  <div class="not_padding">
     <!-- Text field that holds the goal title -->
     <div class="titleArea">
       <mat-form-field>
@@ -11,18 +11,20 @@
                   cdkAutosizeMaxRows="10"
                   [(ngModel)]="goal.title"></textarea>
       </mat-form-field>
-      <div>{{goal.value.toFixed(1)}}%</div>
+      <div class="title">: {{goal.value.toFixed(1)}}%</div>
     </div>
-    <mat-slider 
-      min="0" 
-      max="100" 
-      step="5" 
-      (input)="emitValueUpdate($event)"
-      [value]="goal.value"
-      disabled="{{ goal.subgoals.length > 0 }}"
-    ></mat-slider>
-    <button (click)="requestDelete()">Delete</button>
-    <button (click)="addSubgoal()">Add subgoal</button>
+    <div class="sliderArea">
+      <mat-slider 
+        min="0" 
+        max="100" 
+        step="5"
+        (input)="emitValueUpdate($event)"
+        [value]="goal.value"
+        disabled="{{ goal.subgoals.length > 0 }}"
+      ></mat-slider>
+      <button (click)="requestDelete()">Delete</button>
+      <button (click)="addSubgoal()">Add subgoal</button>
+    </div>
     <!-- TODO: add a vertical line for each indentation level -->
     <div class ="subgoals">
       <app-goal-deleter [goal]="goal">
