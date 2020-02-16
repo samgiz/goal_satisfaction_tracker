@@ -11,6 +11,7 @@ import { Goal } from '../../models/Goal'
 export class GoalComponent implements OnInit {
   @Input() goal: Goal
   @Output() deleteMe: EventEmitter<Goal> = new EventEmitter()
+  @Output() updateValue: EventEmitter<void> = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
@@ -25,16 +26,19 @@ export class GoalComponent implements OnInit {
     }
   }
 
-  onInputChange(event: MatSliderChange) {
+  emitValueUpdate(event: MatSliderChange): void {
     // Set the label to the appropriate value
     this.goal.value = event.value;
-    // TODO: send the updated value to the server? Possibly want to do that every n seconds instead to reduce number of requests (or after n seconds of inactivity)
+    // TODO: emit value upwards
+    console.log("emitting value upwards")
+    this.updateValue.emit()
   }
-  requestDelete() {
+  requestDelete(): void {
     console.log("Requesting delete")
     this.deleteMe.emit(this.goal)
   }
-  addSubgoal() {
+  addSubgoal(): void {
     this.goal.subgoals.push(this.emptyGoal())
   }
+  
 }

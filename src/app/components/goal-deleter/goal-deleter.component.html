@@ -2,5 +2,6 @@
   *ngFor="let g of goal.subgoals" 
   [goal]="g"
   (deleteMe)="deleteSubGoal($event)"
+  (updateValue)="updateValue()"
 >
 </app-goal>
