@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Goal } from '../../models/Goal'
-import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-goal-deleter',
@@ -9,6 +8,8 @@ import { VirtualTimeScheduler } from 'rxjs';
 })
 export class GoalDeleterComponent implements OnInit {
   @Input() goal: Goal
+  @Output() updateValueDel: EventEmitter<void> = new EventEmitter() 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,8 +20,10 @@ export class GoalDeleterComponent implements OnInit {
     this.updateValue()
   }
   updateValue(){
-    console.log("Updating value")
-    if(this.goal.subgoals.length > 0)
+    if(this.goal.subgoals.length > 0){
       this.goal.value = this.goal.subgoals.reduce((a, b) => a+b.value, 0) / this.goal.subgoals.length
+      console.log("Updating value")
+      this.updateValueDel.emit()
+    }
   }
 }

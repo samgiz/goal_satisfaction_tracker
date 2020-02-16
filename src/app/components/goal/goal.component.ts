@@ -25,12 +25,15 @@ export class GoalComponent implements OnInit {
       enabled: true
     }
   }
-
-  emitValueUpdate(event: MatSliderChange): void {
+  updateLocalValue(event: MatSliderChange): void{
     // Set the label to the appropriate value
     this.goal.value = event.value;
     // TODO: emit value upwards
     console.log("emitting value upwards")
+    this.emitValueUpdate()
+
+  }
+  emitValueUpdate(): void {
     this.updateValue.emit()
   }
   requestDelete(): void {

@@ -18,7 +18,7 @@
         min="0" 
         max="100" 
         step="5"
-        (input)="emitValueUpdate($event)"
+        (input)="updateLocalValue($event)"
         [value]="goal.value"
         disabled="{{ goal.subgoals.length > 0 }}"
       ></mat-slider>
@@ -27,7 +27,9 @@
     </div>
     <!-- TODO: add a vertical line for each indentation level -->
     <div class ="subgoals">
-      <app-goal-deleter [goal]="goal">
+      <app-goal-deleter 
+      [goal]="goal" 
+      (updateValueDel)="emitValueUpdate()">
       </app-goal-deleter>
     </div>
   </div>
