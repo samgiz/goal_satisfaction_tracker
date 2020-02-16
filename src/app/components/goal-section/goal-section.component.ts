@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Goal } from '../../models/Goal'
 import { GoalService } from '../../services/goal.service'
+import { HostListener } from '@angular/core';
 
+declare var __dirname: any
+// import { writeFileSync, readFileSync } from 'fs';
 @Component({
   selector: 'app-goal-section',
   templateUrl: './goal-section.component.html',
@@ -13,6 +16,18 @@ export class GoalSectionComponent implements OnInit {
     value: 0,
     subgoals: [],
     enabled: true
+  }
+  goal_info_file: string = __dirname + '/../src/assets/goal_info.json'
+  
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if(event.ctrlKey && event.key == "s"){
+      // Your row selection code
+      console.log("saving")
+      const fs = (<any>window).require("fs")
+      fs.writeFileSync(this.goal_info_file, JSON.stringify(this.dummy_goal), 'utf-8')
+    }
   }
 
   constructor(private goalService: GoalService){ }
