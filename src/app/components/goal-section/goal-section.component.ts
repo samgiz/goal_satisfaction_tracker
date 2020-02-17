@@ -17,28 +17,38 @@ export class GoalSectionComponent implements OnInit {
     subgoals: [],
     enabled: true
   }
-  goal_info_file: string = __dirname + '/../src/assets/goal_info.json'
+  goal_info_path: string = __dirname + '/../user_data/goal_info.json'
   
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if(event.ctrlKey && event.key == "s"){
       // Your row selection code
-      console.log("saving")
+      console.log("saving goals")
       const fs = (<any>window).require("fs")
-      fs.writeFileSync(this.goal_info_file, JSON.stringify(this.dummy_goal), 'utf-8')
+      // Create user_data directory if it does not already exist
+      if(!fs.existsSync(__dirname + "/../user_data/")){
+        fs.mkdirSync(__dirname + "/../user_data/");
+      }
+      // Save the current state of the goals
+      fs.writeFileSync(this.goal_info_path, JSON.stringify(this.dummy_goal, null, 2), 'utf-8')
     }
   }
 
   constructor(private goalService: GoalService){ }
   ngOnInit(){
-    this.goalService.getGoals().subscribe(goals => {
-      if(goals)this.dummy_goal = goals
-    })
+    // load goals if they are available
+    console.log("loading goals")
+    const fs = (<any>window).require("fs")
+    // Load the user data if it exists
+    if(fs.existsSync(this.goal_info_path)){
+      this.dummy_goal = JSON.parse(fs.readFileSync(this.goal_info_path, 'utf-8'))
+    }
   }
 
   deleteSubGoal(goal){
     console.log("deleting topmost goal")
+    
     this.dummy_goal.subgoals = this.dummy_goal.subgoals.filter(x => x!=goal)
     this.updateOverallSatisfaction()
   }

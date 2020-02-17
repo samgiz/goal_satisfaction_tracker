@@ -1,13 +1,39 @@
 {
   "name": "dummy",
-  "value": 0,
+  "value": 55,
   "enabled": false,
   "subgoals": [
     {
       "title": "dummy2",
-      "value": 0,
+      "value": 55,
       "enabled": true,
-      "subgoals": []
+      "subgoals": [
+        {
+          "title": "",
+          "value": 55,
+          "subgoals": [
+            {
+              "title": "",
+              "value": 55,
+              "subgoals": [],
+              "enabled": true
+            }
+          ],
+          "enabled": true
+        },
+        {
+          "title": "",
+          "value": 55,
+          "subgoals": [],
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "title": "",
+      "value": 55,
+      "subgoals": [],
+      "enabled": true
     }
   ]
 }

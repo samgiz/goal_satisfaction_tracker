@@ -4,6 +4,7 @@
   "main": "main.js",
   "scripts": {
     "electron": "ng build --base-href ./ && electron .",
+    "electron_no_build": "electron .",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
