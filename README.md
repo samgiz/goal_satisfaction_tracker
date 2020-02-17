@@ -25,7 +25,7 @@ Since building the project takes a lot of time, you can only build it once (usin
 In the future I am planning to add the following features:
 * Drag and drop functionality to reorder the goals
 * Option to add a weight to your subgoals to influence how the satisfactions are calculated
-* Undo 
+* Undo / redo functionality
 * Add different colours to better distinguish goals
 * Add themes
 * Add a way to track your satisfaction over time
