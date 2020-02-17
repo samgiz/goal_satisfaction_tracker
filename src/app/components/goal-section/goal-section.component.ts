@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Goal } from '../../models/Goal'
-import { GoalService } from '../../services/goal.service'
 import { HostListener } from '@angular/core';
 
 declare var __dirname: any
@@ -35,7 +34,7 @@ export class GoalSectionComponent implements OnInit {
     }
   }
 
-  constructor(private goalService: GoalService){ }
+  constructor(){ }
   ngOnInit(){
     // load goals if they are available
     console.log("loading goals")
