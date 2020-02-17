@@ -14,7 +14,7 @@ export class GoalSectionComponent implements OnInit {
     title: "dummy",
     value: 0,
     subgoals: [],
-    enabled: true
+    showSubgoals: true
   }
   goal_info_path: string = __dirname + '/../user_data/goal_info.json'
   
@@ -57,7 +57,7 @@ export class GoalSectionComponent implements OnInit {
       title: "",
       value: this.dummy_goal.value,
       subgoals: [],
-      enabled: true
+      showSubgoals: true
     })
   }
   updateOverallSatisfaction(){

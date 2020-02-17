@@ -12,6 +12,7 @@ function createWindow() {
       nodeIntegration: true
     } 
   });
+  win.maximize()
 
   // load the dist folder from Angular
   win.loadURL(

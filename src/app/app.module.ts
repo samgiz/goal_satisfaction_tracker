@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
 import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.component'
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.com
     MatSliderModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonToggleModule,
     FormsModule
   ],
   providers: [],

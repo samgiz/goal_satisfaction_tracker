@@ -1,7 +1,7 @@
 <div class="goalSection">
   <div class="row">
     <div class="main_label">Overall satisfaction: {{dummy_goal.value.toFixed(1)}}%</div>
-    <button (click)="addGoal()">New section</button>
+    <button (click)="addGoal()" class="newGoalButton">New section</button>
   </div>
   <app-goal 
     *ngFor="let goal of dummy_goal.subgoals" 

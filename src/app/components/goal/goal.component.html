@@ -24,10 +24,12 @@
       ></mat-slider>
       <button (click)="requestDelete()">Delete</button>
       <button (click)="addSubgoal()">Add subgoal</button>
+      <mat-button-toggle [checked]="goal.showSubgoals" (click)="toggleSubgoals()">Toggle subgoals</mat-button-toggle>
     </div>
     <!-- TODO: add a vertical line for each indentation level -->
     <div class ="subgoals">
       <app-goal-deleter 
+      *ngIf="goal.showSubgoals"
       [goal]="goal" 
       (updateValueDel)="emitValueUpdate()">
       </app-goal-deleter>

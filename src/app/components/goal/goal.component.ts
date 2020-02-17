@@ -22,7 +22,7 @@ export class GoalComponent implements OnInit {
       title: "",
       value: this.goal.value,
       subgoals: [],
-      enabled: true
+      showSubgoals: true
     }
   }
   updateLocalValue(event: MatSliderChange): void{
@@ -42,6 +42,11 @@ export class GoalComponent implements OnInit {
   }
   addSubgoal(): void {
     this.goal.subgoals.push(this.emptyGoal())
+    this.goal.showSubgoals = true;
+  }
+
+  toggleSubgoals(): void {
+    this.goal.showSubgoals = !this.goal.showSubgoals;
   }
   
 }

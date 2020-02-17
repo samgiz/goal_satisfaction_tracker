@@ -4,7 +4,7 @@ This project is a successor to a project I attempted several years ago but never
 
 The main idea is to have your goals listed in a tree like structure, where goals can have smaller subgoals, and calculate the satisfaction of a goal by averaging the satisfactions of its subgoals. The satisfaction for goals that don't have subgoals can be inputed manually.
 
-You can add subgoals to any goal and delete any goal. At the moment there is no guard against deleting a goal with many subgoals, so be careful and make sure to often save if you're making big changes.
+You can add subgoals to any goal and delete any goal, as well as show / hide subgoals. At the moment there is no guard against deleting a goal with subgoals, so be careful and make sure to often save if you're making big changes.
 
 _Note:_ the goals are not saved automatically. You can save them by pressing Ctrl+s. You can also always backup your current 
 
@@ -27,6 +27,6 @@ In the future I am planning to add the following features:
 * Option to add a weight to your subgoals to influence how the satisfactions are calculated
 * Undo / redo functionality
 * Add different colours to better distinguish goals
-* Add a button to show / hide subgoals
 * Add themes
 * Add a way to track your satisfaction over time
+* Make it possible to use the app using only keyboard (add keyboard shortcuts for navigation)
