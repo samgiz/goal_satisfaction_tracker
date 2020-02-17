@@ -27,5 +27,6 @@ In the future I am planning to add the following features:
 * Option to add a weight to your subgoals to influence how the satisfactions are calculated
 * Undo / redo functionality
 * Add different colours to better distinguish goals
+* Add a button to show / hide subgoals
 * Add themes
 * Add a way to track your satisfaction over time
