@@ -25,4 +25,5 @@ button{
 }
 textarea{
   flex: 0;
+  overflow-y: hidden;
 }

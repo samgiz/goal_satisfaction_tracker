@@ -1,4 +1,14 @@
 <div class="file_holder {{file_name == fileService.default_file ? 'yellowish' : ''}}" (click)="emitChangeView()">
   <div class="name">{{ file.title }}</div>
   <div class="percentage">{{ file.value.toFixed(1) }}%</div>
+  <div class="dropdown">
+    <button mat-icon-button class="dropdown_button" [matMenuTriggerFor]="menu" aria-label="File menu" (click)="$event.stopPropagation()">
+      <mat-icon  inline="true">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        Remove
+      </button>
+    </mat-menu>
+  </div>
 </div>

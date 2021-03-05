@@ -8,6 +8,11 @@
   justify-content: space-between;
   border-radius: 2px;
   margin: 2px;
+  background-color: #e0e0e0;
+}
+
+.file_holder:hover{
+  filter: brightness(90%);
 }
 
 .yellowish{
@@ -16,6 +21,25 @@
 .percentage{
   margin-right: 10px;
   height: 100%;
+  /* z-index: 2; */
+}
+.file_holder:hover .percentage{
+  display: none;
+}
+.dropdown{
+  margin-right: 10px;
+  height: 100%;
+  display: none;
+  /* z-index: 2; */
+}
+.file_holder:hover .dropdown{
+  display: block;
+}
+
+.dropdown_button{
+  height: 100%;
+  width: 100%;
+  line-height: 100%;
 }
 
 .name{

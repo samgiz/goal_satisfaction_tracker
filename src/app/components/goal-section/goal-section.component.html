@@ -1,10 +1,11 @@
 <div class="goalSection">
   <div class="row">
     <div class="main_label">
+      <!-- TODO: figure out why below I am unable to set a single max row -->
       <textarea matInput
                   cdkTextareaAutosize
                   cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="10"
+                  cdkAutosizeMaxRows="10" 
                   [(ngModel)]="goals.title">
       </textarea> 
       <!-- satisfaction: {{goals.value.toFixed(1)}}% -->
