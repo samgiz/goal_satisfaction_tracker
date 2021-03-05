@@ -1,10 +1,18 @@
 <div class="goalSection">
   <div class="row">
-    <div class="main_label">Overall satisfaction: {{dummy_goal.value.toFixed(1)}}%</div>
+    <div class="main_label">
+      <textarea matInput
+                  cdkTextareaAutosize
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="10"
+                  [(ngModel)]="goals.title">
+      </textarea> 
+      <!-- satisfaction: {{goals.value.toFixed(1)}}% -->
+    </div>
     <button mat-button (click)="addGoal()" class="newGoalButton">New section</button>
   </div>
   <app-goal 
-    *ngFor="let goal of dummy_goal.subgoals" 
+    *ngFor="let goal of goals.goals" 
     [goal]="goal"
     (deleteMe)="deleteSubGoal($event)"
     (updateValue)="updateOverallSatisfaction()"

@@ -14,14 +14,21 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { GoalComponent } from './components/goal/goal.component';
 import { GoalSectionComponent } from './components/goal-section/goal-section.component';
-import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.component'
+import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.component';
+import { ViewerComponent } from './viewer/viewer.component';
+import { FilesComponent } from './files/files.component';
+import { FileComponent } from './file/file.component'
+import { FileService } from './file.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     GoalComponent,
     GoalSectionComponent,
-    GoalDeleterComponent
+    GoalDeleterComponent,
+    ViewerComponent,
+    FilesComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,7 @@ import { GoalDeleterComponent } from './components/goal-deleter/goal-deleter.com
     MatButtonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

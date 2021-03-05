@@ -1,68 +1,60 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Goal } from '../../models/Goal'
+import { File } from '../../models/File'
 import { HostListener } from '@angular/core';
+import { FileService } from "../../file.service"
 
-declare var __dirname: any
-// import { writeFileSync, readFileSync } from 'fs';
 @Component({
   selector: 'app-goal-section',
   templateUrl: './goal-section.component.html',
   styleUrls: ['./goal-section.component.css']
 })
 export class GoalSectionComponent implements OnInit {
-  dummy_goal: Goal = {
-    title: "dummy",
-    value: 0,
-    subgoals: [],
-    showSubgoals: true
-  }
-  goal_info_path: string = __dirname + '/../user_data/goal_info.json'
-  
+  @Input() goals: File
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if(event.ctrlKey && event.key == "s"){
       // Your row selection code
       console.log("saving goals")
-      const fs = (<any>window).require("fs")
-      // Create user_data directory if it does not already exist
-      if(!fs.existsSync(__dirname + "/../user_data/")){
-        fs.mkdirSync(__dirname + "/../user_data/");
-      }
+      console.log(this.goals)
+      
+      
       // Save the current state of the goals
-      fs.writeFileSync(this.goal_info_path, JSON.stringify(this.dummy_goal, null, 2), 'utf-8')
+      this.fileService.saveFile(this.fileService.default_file, this.goals)
+      // TODO: show a save popup / flash to show that it has saved (probably in the corner)
+      // TODO: autosave on close
     }
+    // if(event.ctrlKey && event.key == "z"){
+    //   // TODO: implement UNDO functionality
+    // }
+    // if(event.ctrlKey && event.key == "y"){
+    //   // TODO: implement redo functionality
+    // }
   }
 
-  constructor(){ }
+  constructor(private fileService: FileService){ }
   ngOnInit(){
-    // load goals if they are available
-    console.log("loading goals")
-    const fs = (<any>window).require("fs")
-    // Load the user data if it exists
-    if(fs.existsSync(this.goal_info_path)){
-      this.dummy_goal = JSON.parse(fs.readFileSync(this.goal_info_path, 'utf-8'))
-    }
   }
 
   deleteSubGoal(goal){
     console.log("deleting topmost goal")
     
-    this.dummy_goal.subgoals = this.dummy_goal.subgoals.filter(x => x!=goal)
+    this.goals.goals = this.goals.goals.filter(x => x!=goal)
     this.updateOverallSatisfaction()
   }
   addGoal(){
     console.log("adding topmost goal")
-    this.dummy_goal.subgoals.push({
+    this.goals.goals.push({
       title: "",
-      value: this.dummy_goal.value,
+      value: this.goals.value,
       subgoals: [],
       showSubgoals: true
     })
   }
   updateOverallSatisfaction(){
     console.log("Updating overall satisfaction")
-    this.dummy_goal.value = this.dummy_goal.subgoals.reduce((a, b) => a+b.value, 0) / this.dummy_goal.subgoals.length
+    this.goals.value = this.goals.goals.reduce((a, b) => a+b.value, 0) / this.goals.goals.length
   }
 
 }

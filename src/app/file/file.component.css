@@ -1,0 +1,24 @@
+.file_holder{
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  /* z-index: 2; */
+  /* border: solid 1px #666666; */
+  /* border-radius: 2px; */
+  justify-content: space-between;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+.yellowish{
+  background-color: #fcff5f
+}
+.percentage{
+  margin-right: 10px;
+  height: 100%;
+}
+
+.name{
+  margin-left: 10px;
+  height: 100%;
+}

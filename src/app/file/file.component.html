@@ -1,0 +1,4 @@
+<div class="file_holder {{file_name == fileService.default_file ? 'yellowish' : ''}}" (click)="emitChangeView()">
+  <div class="name">{{ file.title }}</div>
+  <div class="percentage">{{ file.value.toFixed(1) }}%</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="file_holder">
+  <button mat-button (click)="createNew()" [disabled]="newText == ''">Create new section</button>
+  <textarea matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="10"
+              [(ngModel)]="newText"
+              placeholder="Section name">
+  </textarea>
+  <hr>
+  <div *ngFor="let file_name of file_names">
+    <app-file [file]="fileService.getGoals(file_name)" [file_name]="file_name"></app-file>
+  </div>
+</div>
