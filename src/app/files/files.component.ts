@@ -11,6 +11,11 @@ export class FilesComponent implements OnInit {
   public newText: string = "";
   public file_names: string[]
   ngOnInit(): void {
+    // this.file_names = this.fileService.getFileNames()
+    // this.fileService.fileNameChange.subscribe(
+    //   () => {
+    //      this.file_names = this.fileService.getFileNames()
+    // })
     this.file_names = this.fileService.getFileNames()
     console.log(this.file_names)
   }
@@ -20,6 +25,7 @@ export class FilesComponent implements OnInit {
     this.newText = ""
     console.log(this.newText + " updated")
     this.file_names = this.fileService.getFileNames()
+    
   }
 
 }

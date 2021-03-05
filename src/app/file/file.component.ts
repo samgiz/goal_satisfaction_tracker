@@ -21,5 +21,9 @@ export class FileComponent implements OnInit {
     this.fileService.default_file = this.file_name;
     console.log(this.fileService.default_file)
   }
+  removeFile(): void{
+    console.log("removing file")
+    this.fileService.removeFile(this.file_name)
+  }
 
 }
